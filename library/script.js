@@ -103,8 +103,8 @@ btnAdd.addEventListener('click', () => {
 })
 
 function deleteBook(book) {
-    // Select title (lol this code)
-    title = book.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML
+    // Select title
+    title = book.parentNode.childNodes[0].innerHTML
     
     // Find index of selected row in myLibrary
     const indexOfObject = myLibrary.findIndex(object => {
@@ -129,8 +129,8 @@ function changeReadStatus(book) {
         read.innerHTML = "Read"
     }
     
-    // Select title (lol this code)
-    title = book.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML
+    // Select title
+    title = book.parentNode.childNodes[0].innerHTML
 
     // Find index of selected row in myLibrary
     let indexOfObject = myLibrary.findIndex(object => {
