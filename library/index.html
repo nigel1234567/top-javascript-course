@@ -11,20 +11,18 @@
 <body>
     <div id="library">
         <div id="table"></div>
-        <div class="window">
-            <div class="input" id="title">Title: <input type="text" name="title"></div>
-            <div class="input" id="author">Author: <input type="text" name="author"></div>
-            <div class="input" id="pages">Pages: <input type="number" name="pages"></div>
+        <form class="window">
+            <div class="input" id="title">Title: <input type="text" name="title" class="add" required></div>
+            <div class="input" id="author">Author: <input type="text" name="author" class="add" required></div>
+            <div class="input" id="pages">Pages: <input type="number" name="pages" class="add" required></div>
             <div class="input" id="read">
                 Read?: <select name="read">
                     <option value="Read">Read</option>
                     <option value="Not read yet">Not read yet</option>
                 </select>
             </div>
-        </div>
-        <div class="buttons">
             <button id="add">Add New Book</button>
-        </div>
+        </form>
     </div>
 </body>
 </html>

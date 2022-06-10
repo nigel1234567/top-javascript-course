@@ -138,17 +138,34 @@ btnAdd.addEventListener('click', () => {
     let displayTable = document.getElementById("displayTable");
     let parent = document.getElementById("table")
 
-    parent.removeChild(displayTable)
-
+    
     title = document.getElementsByName("title")
     author = document.getElementsByName("author")
     pages = document.getElementsByName("pages")
     read = document.getElementsByName("read")
+    
+    // Set Validity
+    let allInputs = document.getElementsByClassName("add")
+    for (var i = 0; i < allInputs.length; i++) {
+        console.log(allInputs[i])
+        allInputs[i].addEventListener('input', (e) => {
+            e.setCustomValidity('');
+            e.checkValidity();
+        })
+        
+    }
+    // Only add to table if all valid
+    console.log(allInputs[0].checkValidity() == true && allInputs[1].checkValidity() == true && allInputs[2].checkValidity() == true)
+    if (allInputs[0].checkValidity() == true && allInputs[1].checkValidity() == true && allInputs[2].checkValidity() == true) {
+        parent.removeChild(displayTable)
+        let book = new Book(title[0].value, author[0].value, pages[0].value, read[0].value)
+    
+        library.addBookToLibrary(book);
+        
+        library.createLibraryTable();
+    }
 
-    let book = new Book(title[0].value, author[0].value, pages[0].value, read[0].value)
-
-    library.addBookToLibrary(book);
-
-    library.createLibraryTable();
 })
+
+
 
