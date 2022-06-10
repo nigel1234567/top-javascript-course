@@ -157,12 +157,16 @@ btnAdd.addEventListener('click', () => {
     // Only add to table if all valid
     console.log(allInputs[0].checkValidity() == true && allInputs[1].checkValidity() == true && allInputs[2].checkValidity() == true)
     if (allInputs[0].checkValidity() == true && allInputs[1].checkValidity() == true && allInputs[2].checkValidity() == true) {
-        parent.removeChild(displayTable)
-        let book = new Book(title[0].value, author[0].value, pages[0].value, read[0].value)
-    
-        library.addBookToLibrary(book);
+        const form = document.querySelector('form')
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+            parent.removeChild(displayTable)
+            let book = new Book(title[0].value, author[0].value, pages[0].value, read[0].value)
         
-        library.createLibraryTable();
+            library.addBookToLibrary(book);
+            
+            library.createLibraryTable();
+        })
     }
 
 })
